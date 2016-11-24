@@ -27,7 +27,7 @@
 }
 #start {
     position:absolute;
-    background-image:url("start.PNG");
+    background-image:url("../_img/start.png");
       width:120px;
     height:150px;
     z-index:15;
@@ -53,7 +53,7 @@
 }
 #bluelifes {
      position:absolute;
-     background-image:url("blue.png");
+     background-image:url("../_img/blue.png");
      top:200px;
         width:23px;
     height:21px;
@@ -61,7 +61,7 @@
 }
 #brownlifes {
        position:absolute;
-     background-image:url("brown.png");
+     background-image:url("../_img/brown.png");
      top:200px;
      left:100px;
      width:23px;
