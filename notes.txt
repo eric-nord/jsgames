@@ -1,1 +1,6 @@
-python -m SimpleHTTPServer 80
+To run a simple and not secure http server:
+sudo python -m SimpleHTTPServer 80
+
+People want to be able to play it on their phones but no controls - how do we add phone controls?
+  - joystick like control + fire control?
+  http://stackoverflow.com/questions/22794613/converting-keyboard-controls-of-a-javascript-game-to-touch-interface

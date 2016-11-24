@@ -278,13 +278,17 @@ function draw() {
     context.drawImage(blueship, game.width / 2 + main_x, game.height / 2 + main_y);
   }
 
+  
   if (over === false) {
-    for (var q = 0; q < enemys.length; q++) {
-      var ene = enemys[q];
-      ene.x -= 0.5;
-      context.drawImage(ene.image, ene.x + game.width / 2, ene.y + game.height / 2);
-    }
-  }
+    
+    //Re-draw all enemies
+    enemys.forEach(function(enemy) {
+      enemy.xPosition -= 0.5;
+      
+      context.drawImage(new Image(enemy.img), enemy.x + game.width / 2, enemy.height + game.height / 2);
+      console.log(enemy);
+    });
+  
   if (bossHp >= 1) {
     console.log(bossHp);
     for (var g = 0; g < bosses.length; g++) {
@@ -334,9 +338,19 @@ function draw() {
 
   context.restore();
 }
+}
 
 function gameLoop() {
-
+  
+  //Kill enemies that are past x = 0
+  enemys.forEach(function(xPosition, index, enemy) {
+  if (enemy.xPosition <= 0) {
+    console.log("killing enemy at index " + index);
+    object.splice(index, 1);
+    }
+  });
+  
+  
   single.onclick = function() {
     document.getElementById("start").style.zIndex = "1";
     document.getElementById("single").style.zIndex = "1";
@@ -402,14 +416,9 @@ function pause(e) {
 }
 
 function spawnEnemy() {
-  var enemyi = new Image();
-  enemyi.src = "_img/enemy.png";
-  var c = Math.random() * game.height - game.height / 2;
-  enemys.push({
-    image: enemyi,
-    x: 50,
-    y: c
-  });
+  var enemy = new Enemy(1,"_img/enemy.jpg", 50, -0.5);
+  enemys.push(enemy);
+  console.log(enemys);
 }
 
 function spawnBoss() {
