@@ -1,0 +1,79 @@
+#canvas_wrap {
+    position: absolute;
+    width:119px;
+    height:150px;
+    border:1px solid #000;
+    z-index:7;
+    
+   
+}
+#resume {
+    position: absolute;
+    top:50px;
+    left:41px;
+    height:20px;
+    background-color:red;
+    z-index:1;
+    
+}
+#exit {
+    position:absolute;
+    top:110px;
+    left:51px;
+    height:20px;
+    background-color: red;
+    z-index:2;
+    
+}
+#start {
+    position:absolute;
+    background-image:url("start.PNG");
+      width:120px;
+    height:150px;
+    z-index:15;
+}
+#single {
+    position: absolute;
+    top:50px;
+    left:35px;
+    height:20px;
+    background-color:rgb(61, 61, 92);
+    color:white;
+    z-index:16;
+    
+}
+#co-op {
+    position:absolute;
+    top:91px;
+    left:51px;
+    height:20px;
+    background-color:rgb(61,61,92);
+    color:white;
+    z-index:16;
+}
+#bluelifes {
+     position:absolute;
+     background-image:url("blue.png");
+     top:200px;
+        width:23px;
+    height:21px;
+     
+}
+#brownlifes {
+       position:absolute;
+     background-image:url("brown.png");
+     top:200px;
+     left:100px;
+     width:23px;
+     height:21px;
+}
+
+#gameOver{
+    position: absolute;
+    z-index:-4;
+}
+
+#win{
+    position: absolute;
+    z-index:-4;
+}
