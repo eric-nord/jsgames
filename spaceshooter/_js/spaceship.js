@@ -1,9 +1,10 @@
 class Enemy {
-  constructor(hitpoints, img, xPosition, speed) {
-    this.hitpoints = hitpoints;
-    this.xPosition = xPosition;
-    this.img = img;
-    this.speed = speed;
+  constructor() {
+    this.image = new Image();
+    this.image.src = "_img/enemy.png";
+    this.hitpoints = 1;
+    this.xPosition = 50;
+    this.speed = -0.5;
     
     
     //Holds and array of missels
@@ -11,12 +12,6 @@ class Enemy {
     
     //Sets a random height for new enemy on construction
     this.yPosition = Math.random() * game.height - game.height / 2;
-    console.log(this);
-  }
-}
-
-class SpaceShip extends Enemy {
-  constructor (color){
-    this.color = color;
+    //console.log(this);
   }
 }

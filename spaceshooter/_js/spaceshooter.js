@@ -282,15 +282,15 @@ function draw() {
   if (over === false) {
     
     //Re-draw all enemies
-    enemys.forEach(function(enemy) {
+    for (var j = 0; j < enemys.length; j++) {
+      var enemy = enemys[j];
       enemy.xPosition -= 0.5;
-      
-      context.drawImage(new Image(enemy.img), enemy.x + game.width / 2, enemy.height + game.height / 2);
-      console.log(enemy);
-    });
+      context.drawImage(enemy.image, enemy.xPosition + game.width / 2, enemy.height + game.height / 2);
+      //console.log(enemy);
+  }
   
   if (bossHp >= 1) {
-    console.log(bossHp);
+    //console.log(bossHp);
     for (var g = 0; g < bosses.length; g++) {
       var bos = bosses[g];
       if (bos.x >= -10) {
@@ -320,8 +320,8 @@ function draw() {
 
   }
 
-  for (var j = 0; j < bossmissles.length; j++) {
-    var bosmis = bossmissles[j];
+  for (var jn = 0; jn < bossmissles.length; jn++) {
+    var bosmis = bossmissles[jn];
     bosmis.y = Math.cos(bosmis.x) * 13 + 5;
     bosmis.x -= 0.25;
     context.drawImage(bosmis.image, game.width / 2 + bosmis.x, game.height / 2 + bosmis.y);
@@ -341,14 +341,16 @@ function draw() {
 }
 
 function gameLoop() {
-  
+  console.log(enemys);
   //Kill enemies that are past x = 0
-  enemys.forEach(function(xPosition, index, enemy) {
-  if (enemy.xPosition <= 0) {
-    console.log("killing enemy at index " + index);
-    object.splice(index, 1);
+  for (i = 0; i < enemys.length; i++) {
+    var enemy = enemys[i];
+    //console.log(enemy + " Enemy up for elimination " + enemy.xPosition);
+    if (enemy.xPosition <= 0) {
+      console.log("killing enemy at index " + i + " with postion " + enemy.xPosition);
+      enemys.splice(i, 1);
     }
-  });
+  }
   
   
   single.onclick = function() {
@@ -416,9 +418,7 @@ function pause(e) {
 }
 
 function spawnEnemy() {
-  var enemy = new Enemy(1,"_img/enemy.jpg", 50, -0.5);
-  enemys.push(enemy);
-  console.log(enemys);
+  enemys.push(new Enemy());
 }
 
 function spawnBoss() {
