@@ -77,3 +77,8 @@
     position: absolute;
     z-index:-4;
 }
+#resume{
+  border: 5px;
+  padding: 2px;
+  background-color: #FFF;
+}
