@@ -94,7 +94,7 @@ function gameLoop() {
   };
 
   exit.onclick = function() {
-    window.location.href = "https://static-michaelnowlin5.c9users.io/project/";
+    window.location.href = "http://haowan.ddns.com/spaceshooter";
   };
 
   resume.onclick = function() {
