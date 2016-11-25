@@ -94,7 +94,7 @@ function gameLoop() {
   };
 
   exit.onclick = function() {
-    window.location.href = "https://static-michaelnowlin5.c9users.io/project/";
+    window.location.href = "http://haowan.ddns.com/spaceshooter";
   };
 
   resume.onclick = function() {
@@ -135,17 +135,8 @@ function updatebackground() {
   }
 }
 
-
-
 function spawnEnemy() {
-  var enemyi = new Image();
-  enemyi.src = "_img/enemy.png";
-  var c = Math.random() * game.height - game.height / 2;
-  enemys.push({
-    image: enemyi,
-    x: 50,
-    y: c
-  });
+  enemys.push(new Enemy());
 }
 
 function spawnBoss() {
@@ -164,7 +155,7 @@ function spawnBoss() {
 function reviveBlue() {
   if (deadblue === true) {
     blueLifes -= 1;
-    console.log(blueLifes);
+    //console.log(blueLifes);
     deadblue = false;
   }
 }
@@ -173,7 +164,7 @@ function reviveBrown() {
   if (singlePlayer === false) {
     if (deadbrown === true) {
       brownLifes -= 1;
-      console.log(brownLifes);
+      //console.log(brownLifes);
       deadbrown = false;
     }
   }

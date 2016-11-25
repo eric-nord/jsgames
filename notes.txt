@@ -1,1 +1,3 @@
-python -m SimpleHTTPServer 80
+sudo python -m SimpleHTTPServer 80
+
+Michael - take a look at the hitlogic.js file. It has some hints on how we could make the collisions much simpler. 
