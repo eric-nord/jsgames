@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>Crappy Bird</title>
+</head>
+  <body>
+    <div>
+      <input type="file" id="file"/>
+    </div>
+    <div id="image-container">
+      <canvas id="canvas" width="400" height="400"></canvas>
+      <div>
+        <span>Top line: </span>
+        <input type="text" id="topLine" value="I don't always...">
+        <span>Bottom line: </span>
+        <input type="text" id="bottomLine" value="But when I do...">
+        <button id="saveBtn">Save</button>
+      </div>
+    </div>
+    <script>
+      var canvas = document.querySelector('canvas');
+      var ctx = canvas.getContext("2d");  
+      var data = ctx.getImageData(0,0,400,400);
+      
+      function paintGreen(imageData) {
+        var numPixels = imageData.data.length /4 ;
+        for (var i = 0; i <numPixels; i++){
+          if(i % 10 === 0 ) {
+            imageData.data[i*4 +1] = 255;
+            imageData.data[i*4 +3] = 255;
+          }
+        }
+        ctx.putImageData(imageData,0,0);
+      }
+      paintGreen(data);
+    </script>
+  </body>
+</html>

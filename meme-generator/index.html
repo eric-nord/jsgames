@@ -1,0 +1,112 @@
+<html>
+<head>
+  <title>Crappy Bird</title>
+</head>
+  <body>
+    <div>
+      <input type="file" id="file"/>
+    </div>
+    <div id="image-container">
+      <canvas id="canvas" width="500" height="500"></canvas>
+      <div>
+        <span>Top line: </span>
+        <input type="text" id="topLine" value="I don't always...">
+        <span>Bottom line: </span>
+        <input type="text" id="bottomLine" value="But when I do...">
+        <button id="saveBtn">Save</button>
+      </div>
+    </div>
+    <script>
+      
+      
+      function textChangeListener (evt) {
+        var id = evt.target.id;
+        var text = evt.target.value;
+        
+        if (id == "topLine") {
+          window.topLine = text;
+        } else {
+          window.bottomLine = text;
+        }
+        
+        redrawMeme(window.imageSrc, window.topLine, window.bottomLine)
+      }
+      
+      function redrawMeme(image, topLine, bottomLine) { 
+        var canvas = document.querySelector('canvas');
+        var ctx = canvas.getContext("2d");  
+        
+        if(image != null)
+          ctx.drawImage(image, 0, 0, canvas.width, canvas.height);  
+        if (topLine != null)
+          drawText(topLine, canvas.width / 2, 40);
+        if (bottomLine != null)
+          drawText(bottomLine, canvas.width / 2, canvas.height - 20);
+      }
+      
+      function saveFile(){
+        window.open(document.querySelector('canvas').toDataURL());
+      }
+      
+      function handleFileSelect(evt) {
+        var canvasWidth = 500;
+        var canvasHeight = 500;
+        var file = evt.target.files[0];
+        
+        var reader = new FileReader();
+        reader.onload = function(fileObject) {
+          var data = fileObject.target.result;
+          
+          var image = new Image();
+          image.onload = function () {
+            window.imageSrc = this;
+            redrawMeme(window.imageSrc, null, null);
+          }
+          image.src = data;
+          console.log(fileObject.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
+      
+      function drawText(text, x, y) {
+        ctx.font = "80px Sans-serif"
+        ctx.strokeStyle = 'black';
+        ctx.textAlign="center";
+        ctx.lineWidth = 3;
+        ctx.strokeText(text, x, y);
+        ctx.fillStyle = 'white';
+        ctx.fillText(text, x, y);
+      }
+       
+        
+//         ctx.fillRect(100,100,100,100)
+//         ctx.strokeRect(50,50,50,50)
+        
+//         ctx.beginPath();
+//         ctx.moveTo(75,75);
+//         ctx.lineTo(125,75);
+//         ctx.lineTo(125,125);
+//         ctx.lineTo(75,75);
+//         ctx.stroke();
+ 
+        //useful methods in order of operation
+        //scale(x,y) change size
+        //rotate(angledRadians)
+        //translate(x,y) change location
+        
+        
+        //Circle poop
+//         var centerX = 100;
+//         var centerY = 100;
+//         var radius = 3;
+        
+//         ctx.beginPath();
+//         ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+//         ctx.fillStyle = 'brown';
+//         ctx.fill();
+//         ctx.lineWidth = 0;
+//         ctx.strokeStyle = '#003300';
+//         ctx.stroke();
+    </script>
+  </body>
+</html>
