@@ -1,24 +1,25 @@
 <html>
 <head>
-  <title>Crappy Bird</title>
+  <title>Image edit</title>
+  <style type="text/css">
+    canvas{border:#666}
+  </style>
 </head>
   <body>
-    <div>
-      <input type="file" id="file"/>
-    </div>
     <div id="image-container">
-      <canvas id="canvas" width="400" height="400"></canvas>
-      <div>
-        <span>Top line: </span>
-        <input type="text" id="topLine" value="I don't always...">
-        <span>Bottom line: </span>
-        <input type="text" id="bottomLine" value="But when I do...">
-        <button id="saveBtn">Save</button>
-      </div>
+      <canvas id="canvas" width="400" height="400"></canvas>       
     </div>
     <script>
       var canvas = document.querySelector('canvas');
       var ctx = canvas.getContext("2d");  
+      var imageObj = new Image();
+           
+      imageObj.onload = function() {
+        ctx.drawImage(imageObj, 0, 0, 400, 400);
+      };
+      
+      imageObj.src = "bird.jpg";
+      
       var data = ctx.getImageData(0,0,400,400);
       
       function paintGreen(imageData) {
@@ -31,7 +32,23 @@
         }
         ctx.putImageData(imageData,0,0);
       }
-      paintGreen(data);
+      //paintGreen(data);
+      
+      function grayScale(imageData) {
+        var imgPixels = ctx.getImageData(0, 0, 400, 400);
+     
+        for(var y = 0; y < imgPixels.height; y++){
+            for(var x = 0; x < imgPixels.width; x++){
+                var i = (y * 4) * imgPixels.width + x * 4;
+                var avg = (imgPixels.data[i] + imgPixels.data[i + 1] + imgPixels.data[i + 2]) / 3;
+                imgPixels.data[i] = avg; 
+                imgPixels.data[i + 1] = avg; 
+                imgPixels.data[i + 2] = avg;
+            }
+        }
+        ctx.putImageData(imageData,0,0);
+      }
+      grayScale(data);
     </script>
   </body>
 </html>
