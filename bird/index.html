@@ -6,33 +6,17 @@
 		<title>Crappy Bird</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="_css/canvas.css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.3/processing.js"></script>
-		
-		
-		<!-- <script type="application/javascript" language="javascript">
-			function draw(x,y) {
-				var canvas = document.getElementById("canvas");
-				var ctx = canvas.getContext('2d');
-				ctx.save();
-				ctx.clearRect(0,0,500,400);
-				ctx.fillStyle=("rgba(0,0,100,1)");
-				ctx.fillRect(x,20,50,50);
-				ctx.restore();
-				x += 2
-				var loopTimer = setTimeout('draw('+x+','+y+')',30);
-			}
-		</script>
--->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.3/processing.js"></script>	
+		<script src="_js/temp.js" type="application/javascript" language="javascript"></script>
 	</head>
 	<body>  
-		<h1>
-			Crappy bird
-		</h1>
-		<script type"application/javascript" language="javascript" src="_js/bird.js"></script>
-		<button onclick="draw()">Start Game</button>
-		<canvas id="canvas" width="500px" height="500px"></canvas>
-	<!--	<script type="text/javascript" src="bird.js"></script> -->	
+		<h1>Crappy bird</h1>
+		<div id="buttons">
+			<button onclick="draw(0,0); setCanvasSize">START GAME</button>
+			<button onClick="window.open('pong.html', '_blank')">PONG</button>	
 		</div>
 		
+		<canvas id="canvas"></canvas>	<br/>
+		<button onClick="window.open('credits.html', '_blank')">CREDITS</button>	
 	</body>
 </html>

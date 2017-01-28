@@ -9,3 +9,8 @@ function draw(x,y) {
   x += 2
   var loopTimer = setTimeout('draw('+x+','+y+')',30);
 }
+
+function setCanvasSize(width, height){
+  ctx.canvas.width  = "500px";
+  ctx.canvas.height = "400px";
+}
