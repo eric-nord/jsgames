@@ -1,4 +1,15 @@
 /*
+Controls
+Bird slowly centers to top left but you can pull it back with wind button fan 
+Poop 
+- short press normal fire
+- long press gets bigger
+- too long bird goes boom but can still land last hit.
+- If this goes anywhere Doug get 70% Eric get 30%
+*/
+
+
+/*
 Next:
 - Do art with Doug
 - consolidate draw loops
@@ -97,11 +108,11 @@ update = function() {
   cc.fillStyle='#b2eeff';
   cc.fillRect(0,0,c.width,c.height);
   cc.fillStyle='green';
-  cc.fillRect(0,c.height*0.90,c.width,c.height*0.10);
+  cc.fillRect(0,c.height*0.80,c.width,c.height*0.20);
   
   //Draw grass
   for (var i = 0; i < grassXs.length; i++) {
-    cc.drawImage(grassImg, grassXs[i], 400);
+    cc.drawImage(grassImg, grassXs[i], c.height*0.70);
     grassXs[i] += 1;
     if (grassXs[i] >= 2000) {
         grassXs[i] = -100;
