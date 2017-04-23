@@ -117,6 +117,14 @@ function gameLoop() {
       gameLogic();
     }
   }
+  
+  if (blueLifes <= 0){
+    deadblue = true;
+  }
+  
+  if (brownLifes <= 0){
+    deadbrown = true;
+  } 
   if (blueLifes <= 0 && brownLifes <= 0) {
     document.getElementById("gameOver").style.zIndex = "40";
   }
@@ -124,6 +132,7 @@ function gameLoop() {
     document.getElementById("win").style.zIndex = "40";
   }
   document.getElementById("bluelifes").innerHTML = "... " + blueLifes;
+  document.getElementById("brownlifes").innerHTML = "... " + brownLifes;
 }
 
 function updatebackground() {

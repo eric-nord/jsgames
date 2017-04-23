@@ -1,3 +1,6 @@
 sudo python -m SimpleHTTPServer 80
 
 Michael - take a look at the hitlogic.js file. It has some hints on how we could make the collisions much simpler. 
+
+Eric - I did a litte fixing on coop on how the brown player would stay dead when dead, but their is a small gitch that has the image would pop up and then disappear.
+        no i did not look at the whole thing in the hitlogic.js yet.
